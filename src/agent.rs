@@ -16,3 +16,34 @@ pub trait Agent: Send + Sync {
         Ok(self.generate(request).await?.text)
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use std::time::Duration;
+
+    use super::*;
+
+    struct Stub;
+
+    #[crate::async_trait]
+    impl Agent for Stub {
+        async fn generate(&self, _: &GenerationRequest) -> Result<Generation> {
+            Ok(Generation {
+                text: "answer".to_string(),
+                usage: None,
+                model: Some("stub".to_string()),
+                elapsed: Duration::from_millis(1),
+            })
+        }
+    }
+
+    #[tokio::test]
+    async fn generate_text_discards_metadata() {
+        assert_eq!(
+            Stub.generate_text(&GenerationRequest::new("task"))
+                .await
+                .unwrap(),
+            "answer"
+        );
+    }
+}
