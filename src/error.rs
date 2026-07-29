@@ -26,6 +26,16 @@ pub enum Error {
         value: String,
     },
 
+    /// The installed agent CLI is older than the adapter's compatibility floor.
+    #[error(
+        "{adapter} CLI version `{detected}` is incompatible; minimum supported version is `{minimum}`"
+    )]
+    IncompatibleVersion {
+        adapter: &'static str,
+        detected: String,
+        minimum: &'static str,
+    },
+
     /// The configured agent executable could not be started.
     #[error("failed to spawn `{binary}`: {source}")]
     Spawn {
