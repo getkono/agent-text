@@ -23,6 +23,8 @@
 mod agent;
 #[cfg(feature = "claude-code")]
 mod claude;
+#[cfg(feature = "codex")]
+mod codex;
 mod error;
 mod request;
 
@@ -30,6 +32,8 @@ pub use agent::Agent;
 pub use async_trait::async_trait;
 #[cfg(feature = "claude-code")]
 pub use claude::ClaudeCode;
+#[cfg(feature = "codex")]
+pub use codex::{Codex, CodexVersion};
 pub use error::{BoxError, Error, Result};
 pub use request::{
     ContextItem, ContextValue, Generation, GenerationOptions, GenerationRequest, ReasoningEffort,
