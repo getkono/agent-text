@@ -1,0 +1,16 @@
+[package]
+name = "agent-text"
+version = "0.1.0"
+description = "Generate text through local AI agent CLIs"
+readme = "README.md"
+keywords = ["ai", "agent", "claude", "text-generation"]
+categories = ["api-bindings", "development-tools"]
+edition = "2024"
+rust-version = "1.85"
+authors = ["Justin Chung <noreply@justinchung.net>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/getkono/agent-text"
+homepage = "https://github.com/getkono/agent-text"
+
+[dependencies]
+
