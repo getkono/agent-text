@@ -6,14 +6,17 @@
 //! them into callers.
 //!
 //! ```
+//! # #[cfg(feature = "claude-code")]
+//! # mod example {
 //! use agent_text::{Agent, ClaudeCode, ContextItem, GenerationRequest};
 //!
-//! # async fn example() -> Result<(), agent_text::Error> {
+//! # async fn run() -> Result<(), agent_text::Error> {
 //! let request = GenerationRequest::new("Summarize the supplied change.")
 //!     .with_context(ContextItem::text("change", "Added bounded retries."));
 //! let text = ClaudeCode::new().generate_text(&request).await?;
 //! # let _ = text;
 //! # Ok(())
+//! # }
 //! # }
 //! ```
 
