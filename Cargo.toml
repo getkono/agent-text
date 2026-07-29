@@ -12,5 +12,11 @@ license = "MIT OR Apache-2.0"
 repository = "https://github.com/getkono/agent-text"
 homepage = "https://github.com/getkono/agent-text"
 
-[dependencies]
+[features]
+default = []
+claude-code = []
 
+[dependencies]
+async-trait = "0.1"
+serde_json = "1"
+thiserror = "2"
