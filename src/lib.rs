@@ -4,6 +4,18 @@
 //! [`Generation`]. Requests carry an explicit prompt plus ordered, labeled text
 //! or JSON context. Adapters own transport-specific details without leaking
 //! them into callers.
+//!
+//! ```
+//! use agent_text::{Agent, ClaudeCode, ContextItem, GenerationRequest};
+//!
+//! # async fn example() -> Result<(), agent_text::Error> {
+//! let request = GenerationRequest::new("Summarize the supplied change.")
+//!     .with_context(ContextItem::text("change", "Added bounded retries."));
+//! let text = ClaudeCode::new().generate_text(&request).await?;
+//! # let _ = text;
+//! # Ok(())
+//! # }
+//! ```
 
 mod agent;
 #[cfg(feature = "claude-code")]
