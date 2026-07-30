@@ -1,6 +1,6 @@
 [package]
 name = "agent-text"
-version = "0.1.1"
+version = "0.1.2"
 description = "Generate text through local AI agent CLIs"
 readme = "README.md"
 keywords = ["ai", "agent", "claude", "codex", "text-generation"]
