@@ -1,7 +1,9 @@
 # agent-text
 
-Generate one string from an instruction and arbitrary context through a local AI
-agent CLI.
+Generate one string from an instruction and arbitrary context through a local AI agent CLI.
+
+> Status: Ready for use, used by several productionized crates across the kono org. Open issue/PR for requests but this library is intentionally minimal in scope.
+> Use case: This library "piggybacks" off existing LLM agent harnesses intentionally to take advantage of subscriptions without any trickery. We may consider more direct methods as long as it does not risk user to break ToS of their LLM subscriptions.
 
 `agent-text` supplies an async, provider-neutral [`Agent`] contract and Claude
 Code and Codex CLI adapters. It is intentionally narrower than an agent
