@@ -39,3 +39,15 @@ required-features = ["claude-code"]
 [[example]]
 name = "codex"
 required-features = ["codex"]
+
+# Dev and test builds give this crate line tables only and dependencies no
+# debuginfo, so target/ stays small under fast iteration. Backtraces keep
+# file:line for this crate; dependency frames keep their symbol names but lose
+# file:line. For full debuginfo when step-debugging:
+#   CARGO_PROFILE_DEV_DEBUG=2 cargo ...                          # this crate
+#   cargo --config 'profile.dev.package."*".debug=2' ...         # dependencies
+[profile.dev]
+debug = "line-tables-only"
+
+[profile.dev.package."*"]
+debug = false
